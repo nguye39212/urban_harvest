@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: urbanharvest
+  host: localhost
+
+production:
+  adapter: postgresql
+  database: urbanharvest
+  host: localhost

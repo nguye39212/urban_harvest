@@ -1,0 +1,22 @@
+%table.table
+  %thead
+    %tr
+      %th
+      %th
+        Donation Description
+      %th
+        Status
+      %th
+
+  %tbody
+    - donations.each do |donation|
+      %tr
+        %td
+          = donation.created_at.strftime('%b %-d')
+        %td
+          = donation.description
+        %td
+          - if donation.food_bank_id.present?
+            Picked up by #{donation.food_bank}
+          - else
+            Unclaimed

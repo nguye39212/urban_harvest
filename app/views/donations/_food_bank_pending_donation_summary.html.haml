@@ -1,0 +1,23 @@
+%table.table
+  %thead
+    %tr
+      %th
+        Restaurant
+      %th
+        Donation Description
+      %th
+        Expires
+
+  %tbody
+    - donations.each do |donation|
+      %tr
+        %td
+          = donation.donor.name
+          %br
+          = (display_address donation.donor).html_safe
+        %td
+          = donation.description
+        %td
+          = donation.expires.strftime('%b %-d %H:%M %Z')
+        %td
+          = link_to "<span class='fa fa-truck'></span> Picked up!".html_safe, picked_up_user_donation_path(donation.donor, donation), class:'btn btn-success btn-block btn-md'

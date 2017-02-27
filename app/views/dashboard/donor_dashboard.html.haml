@@ -1,0 +1,39 @@
+.page-wrapper
+  .container
+    .row
+      .col-sm-12
+        %h1.text-center Welcome, #{current_user.name}!
+        %br
+        %br
+
+
+        .white-bg
+          %h3 Log a Donation
+          %p Do you have leftovers you'd like to let nearby food banks know about? Use the link below to log a new donation and your local charities will be able to claim it and connect with you.
+          .text-center.margin-top-bottom-10
+            = link_to "<span class='fa fa-cutlery'></span>New Donation".html_safe, new_user_donation_path(current_user), class:'btn btn-lg btn-success'
+
+    .row
+      .col-sm-12
+        .white-bg
+          %h3 Your Pending Donations
+          - if current_user.donor_donations.fresh.present?
+            = render partial: 'donations/donor_pending_donation_summary', locals:{donations:current_user.donor_donations.fresh}
+          - else
+            %p.text-center
+              You don't have any pending donations
+    .row
+      .col-sm-12
+        .white-bg
+          %h3 Your Past Donations
+          - if current_user.donor_donations.expired.present?
+            = render partial: 'donations/donor_donation_summary', locals:{donations:current_user.donor_donations.expired}
+          - else
+            %p.text-center
+              You don't have any past donations
+
+
+
+
+
+

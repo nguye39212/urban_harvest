@@ -1,0 +1,40 @@
+.page-wrapper
+  .container
+    .row
+      .col-sm-12
+        %h1.text-center Welcome, #{current_user.name}!
+        %br
+        %br
+
+        .white-bg
+          %h3 Browse Current Donations
+          %p You can search through all of the restaurants who currently are offering a food donation for pickup.
+          .text-center.margin-top-bottom-10
+            = link_to "<span class='fa fa-cutlery'></span>View Current Donations".html_safe, current_donations_path, class:'btn btn-lg btn-success'
+
+    .row
+      .col-sm-12
+        .white-bg
+          %h3 Your Pending Donations
+          %p These are the donations you've claimed. It's your job to coordinate pickup with the restaurant!
+
+          - if current_user.food_bank_donations.pending.present?
+            = render partial: 'donations/food_bank_pending_donation_summary', locals:{donations:current_user.food_bank_donations.pending}
+          - else
+            %p.text-center
+              You don't have any pending donations
+    .row
+      .col-sm-12
+        .white-bg
+          %h3 Your Past Donations
+          - if current_user.food_bank_donations.picked_up.present?
+            = render partial: 'donations/food_bank_donation_summary', locals:{donations:current_user.food_bank_donations.picked_up}
+          - else
+            %p.text-center
+              You don't have any past donations
+
+
+
+
+
+

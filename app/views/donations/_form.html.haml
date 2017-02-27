@@ -1,0 +1,30 @@
+= form_for([current_user, donation]) do |f|
+  - if donation.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(donation.errors.count, "error")
+        prohibited this donation from being saved:
+      %ul
+        - donation.errors.full_messages.each do |message|
+          %li= message
+
+  %fieldset
+    .legend
+      %legend
+        %span.fa.fa-cutlery
+        Donation information
+
+    .form-group
+      = f.label :description, class:'control-label'
+      = f.text_area :description, class:'form-control', rows:4
+      %p.help-block
+        Let food banks know what you have? What type of food? How much? What type of packaging?
+    .form-group
+      = f.label :expires, class:'control-label'
+      = f.datetime_select :expires
+      %p.help-block
+        When does the charity you connect with have to pick this donation up by?
+
+    = f.hidden_field :donor_id, value:current_user.id
+    .actions
+      = f.submit class:'btn btn-success btn-lg'

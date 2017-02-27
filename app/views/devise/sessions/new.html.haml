@@ -1,0 +1,26 @@
+.page-wrapper
+
+  .container
+    .row
+      .col-md-10.col-md-offset-1
+        .form-wrapper
+
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            %fieldset
+              .legend
+                %legend
+                  Log into your account
+
+            .form-group
+              = f.label :email, class:'control-label'
+              = f.email_field :email, autofocus: true, class:'form-control'
+            .form-group
+              = f.label :password, class:'control-label'
+              = f.password_field :password, autocomplete: "off", class:'form-control'
+            - if devise_mapping.rememberable?
+              .form-group
+                = f.check_box :remember_me
+                = f.label :remember_me, class:'control-label'
+            .form-group
+              = f.submit "Log in", class:'btn btn-success'
+          = render "devise/shared/links"

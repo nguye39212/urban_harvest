@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>UrbanHarvest</title>
+    <%= csrf_meta_tags %>
+
+    <!-- Cutlery Favicon -->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/7cAAP+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACAAAAAiIAACIgAAACIgAAIiAAAAIiAAAiIAAAAiIAACIgAAACIgAAIiAAAAIiAAAiIAAAEREQABERAAARERAAEREQABAQEAARERAAEBAQABEREAAQEBAAEREQABAQEAAREQAAEBAQABEAAAAAAAAAAAAAAAAAAAAAAAD37wAA48cAAOPHAADjxwAA48cAAOPHAADjxwAAwcMAAMHBAADVwQAA1cEAANXBAADVwwAA1c8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+
+    <!-- Google Web Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,500,700,800,100,600" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Signika:300,400,600,700" rel="stylesheet">
+
+    <!-- FontAwesome icons -->
+    <script src="//use.fontawesome.com/f93edc0fec.js"></script>
+
+    <!-- Latest compiled and minified Bootstrap 3 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <!-- Latest compiled and minified Bootstrap 3 JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  </head>
+
+  <body class="<%= params[:controller] %>-<%= params[:action] %>">
+    <%= render 'layouts/navigation' %>
+    <%= render 'layouts/notifications' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </body>
+</html>

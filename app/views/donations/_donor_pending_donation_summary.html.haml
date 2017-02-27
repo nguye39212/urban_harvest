@@ -1,0 +1,31 @@
+%table.table
+  %thead
+    %tr
+      %th
+      %th
+        Donation Description
+      %th
+        Status
+      %th
+        Expires
+
+  %tbody
+    - donations.each do |donation|
+      %tr
+        %td
+          = donation.created_at.strftime('%b %-d')
+        %td
+          = donation.description
+        %td
+          - if donation.food_bank_id.present?
+            Claimed by: #{donation.food_bank.name}
+            %br
+            = (display_address donation.food_bank).html_safe
+
+          - else
+            Unclaimed
+        %td
+          = donation.expires.strftime('%b %-d %H:%M %Z')
+        %td
+          -if !donation.claimed?
+            = link_to 'Destroy', user_donation_path(current_user, donation), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-sm btn-danger'

@@ -1,0 +1,20 @@
+%table.table
+  %thead
+    %tr
+      %th
+      %th
+        Donor
+      %th
+        Donation Description
+
+  %tbody
+    - donations.each do |donation|
+      %tr
+        %td
+          = donation.created_at.strftime('%b %-d')
+        %td
+          = donation.donor.name
+          %br
+          = (display_address donation.donor).html_safe
+        %td
+          = donation.description

@@ -1,0 +1,65 @@
+%section#header.text-center
+  .row
+    .col-md-10.col-md-offset-1
+      %h1.brand-name
+        %span.paw
+          %span.fa.fa-cutlery
+        Urban Harvest
+
+  .row.margin-top-40.text-center
+    .col-sm-12
+      = link_to "I am a Restaurant<br>and I'd like to donate leftovers".html_safe, new_user_registration_path(role:'donor'), class:'btn btn-lg btn-success'
+      = link_to "I am a food bank<br>and I'd like to pickup leftovers".html_safe, new_user_registration_path(role:'food_bank'), class:'btn btn-lg btn-success'
+
+
+
+%section.under-header-section
+  .row
+    .col-sm-12.text-center
+      .svg-icon.svg-50
+        = render_svg 'apple'
+      %h3
+        What is Urban Harvest?
+
+      %p.hero-text
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+%section
+  .row
+    .col-sm-12.text-center
+      %h3
+        How does it work?
+      .row
+        .col-sm-4
+          .svg-icon.svg-100
+            = render_svg 'porridge'
+            %p.hero-text
+              Restaurants have leftovers and log them on the site
+
+
+        .col-sm-4
+          .svg-icon.svg-100
+            = render_svg 'maps-and-flags'
+            %p.hero-text
+              Charities can browse through all the nearby donations and connect with the donor
+
+        .col-sm-4
+          .svg-icon.svg-100
+            = render_svg 'groceries'
+            %p.hero-text
+              Leftovers make their way to people who need it
+
+
+
+
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br

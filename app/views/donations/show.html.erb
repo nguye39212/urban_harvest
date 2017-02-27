@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @donation.description %>
+</p>
+
+<p>
+  <strong>Expires:</strong>
+  <%= @donation.expires %>
+</p>
+
+<p>
+  <strong>Donor:</strong>
+  <%= @donation.donor_id %>
+</p>
+
+<p>
+  <strong>Food bank:</strong>
+  <%= @donation.food_bank_id %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>

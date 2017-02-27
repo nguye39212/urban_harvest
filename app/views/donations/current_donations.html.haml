@@ -1,0 +1,30 @@
+.page-wrapper
+  %h1.text-center Current Donations
+  .container
+    .row
+      .col-md-12
+        .white-bg
+          = image_tag generate_map_url(@donations), class: 'img-rounded img-responsive', alt: "Nearby restaurants donating food now"
+
+        - @donations.each_with_index do |donation, index|
+          .row.donation-row
+            .col-md-12
+              .white-bg
+                .row
+                  .col-md-3
+                    %h3
+                      %span.restaurant-name
+                        %span.badge
+                          = index + 1
+                        = donation.donor.name
+                    %address
+                      = (display_address donation.donor).html_safe
+                  .col-md-6
+                    %span.description
+                      = simple_format donation.description
+                      .alert.alert-danger.text-bold.text-center.expires-notice
+                        Expires #{donation.expires.strftime('%b %-d %H:%M %Z')}
+
+                  .col-md-3
+                    %span.donation-links
+                      = link_to "<span class='fa fa-cutlery'></span>Claim Donation".html_safe, claim_user_donation_path(donation.donor, donation), class:'btn btn-success btn-block btn-md'

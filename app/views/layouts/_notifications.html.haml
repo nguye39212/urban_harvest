@@ -1,0 +1,3 @@
+#notification-growl
+  - flash.each do |key, value|
+    = content_tag :div, (value.html_safe if value), class: "flash #{(key if key)}"
