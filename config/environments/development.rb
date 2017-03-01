@@ -11,7 +11,9 @@ Rails.application.configure do
     end if File.exists?(env_file)  
   end
   
-config.secret_key = ENV["SECRET_KEY_BASE"]
+# config.secret_key = ENV["SECRET_KEY_BASE"]
+config.secret_key = 'ef95955fd1d187345c7a081ff506fd74a62077a732ba982dd8c75f8ef318eca3aa4a737da669451e45f25e7e71989c32158d9d862b5ad48f5dab02f3c4241d0e'
+  
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

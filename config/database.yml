@@ -7,3 +7,18 @@ production:
   adapter: postgresql
   database: urbanharvest
   host: localhost
+
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  host: localhost
+  username: postgres
+  
+  port: 5432
+  database: urbanharvest
